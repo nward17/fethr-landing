@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fethr - Unleash your adventure.</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "HistoryOfWawa";
+        src: url("fonts/History of Wawa.otf") format("opentype"),
+          url("fonts/History of Wawa.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        /* Brand Colors - Defined locally */
+        --primary-color: #f4511e;
+        --secondary-color: #2196f3;
+        --accent-color: #4caf50;
+        --background-color: #fff;
+        --text-color: #000;
+        --text-secondary: #666;
+        --border-color: #ddd;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.65),
+            rgba(255, 255, 255, 0.65)
+          ),
+          url("https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80")
+            center/cover fixed;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.9),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(
+          to top,
+          rgba(255, 255, 255, 0.9),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .logo-container {
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .feather-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+      }
+
+      .feather-icon svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-10deg);
+      }
+
+      .app-name {
+        font-family: "HistoryOfWawa", system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+          sans-serif;
+        font-size: 4.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0;
+        font-weight: normal;
+        line-height: 1;
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .tagline {
+        font-size: 2rem;
+        color: var(--text-color);
+        margin-bottom: 3.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+        background: linear-gradient(
+          45deg,
+          var(--text-color),
+          var(--primary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+
+      .tagline span {
+        background: linear-gradient(
+          45deg,
+          var(--text-color),
+          var(--primary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .tagline::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary-color),
+          transparent
+        );
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: white;
+        background-color: var(--primary-color);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px rgba(244, 81, 30, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(244, 81, 30, 0.3);
+      }
+
+      .cta-button:hover::before {
+        transform: translateX(100%);
+      }
+
+      .cta-button svg {
+        width: 24px;
+        height: 24px;
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+      }
+
+      .cta-button .button-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.2;
+      }
+
+      .cta-button .button-text small {
+        font-size: 0.75rem;
+        font-weight: normal;
+        opacity: 0.9;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+        50% {
+          transform: translateY(-15px) translateX(-50%);
+        }
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        animation: float 3s ease-in-out infinite;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        background: var(--primary-color);
+      }
+
+      .scroll-indicator:hover {
+        transform: translateX(-50%) scale(1.1);
+        box-shadow: 0 6px 30px rgba(244, 81, 30, 0.2);
+        background: #e03d0d;
+      }
+
+      .scroll-indicator svg {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.3s ease;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      .scroll-indicator:hover svg {
+        transform: none;
+      }
+
+      .features {
+        padding: 4rem 2rem 2rem;
+        background: linear-gradient(to bottom, #f8f9fa, #fff);
+        position: relative;
+      }
+
+      .features::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, #fff, transparent);
+      }
+
+      .features-header {
+        position: relative;
+        margin-bottom: 4rem;
+      }
+
+      .features-title {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--text-color) 0%,
+          var(--primary-color) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .features-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+
+      .features-header::after {
+        content: "";
+        position: absolute;
+        bottom: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary-color),
+          transparent
+        );
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .feature-card {
+        padding: 2.5rem;
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        border-color: rgba(244, 81, 30, 0.2);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+      }
+
+      .feature-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          45deg,
+          var(--text-color),
+          var(--primary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .feature-description {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .download-section {
+        padding: 0 2rem 4rem;
+        background: linear-gradient(to bottom, #fff, rgba(244, 81, 30, 0.05));
+        position: relative;
+      }
+
+      .download-section .cta-button {
+        transform: scale(1.2);
+        margin: 0 auto;
+      }
+
+      .download-section .cta-button:hover {
+        transform: scale(1.2) translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .app-name {
+          font-size: 3.5rem;
+        }
+
+        .tagline {
+          font-size: 1.5rem;
+          padding: 0 1rem;
+        }
+
+        .features-title {
+          font-size: 2.25rem;
+        }
+
+        .features-subtitle {
+          font-size: 1.1rem;
+          padding: 0 1rem;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-button {
+          padding: 0.75rem 1.25rem;
+        }
+
+        .feature-card {
+          padding: 2rem;
+        }
+      }
+
+      .hero .cta-button {
+        transform: scale(1.3);
+        margin-top: 2rem;
+      }
+
+      .hero .cta-button:hover {
+        transform: scale(1.3) translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="logo-container">
+            <div class="feather-icon">
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="#f4511e"
+                  d="M512 0C460.22 3.56 96.44 38.2 71.01 287.61c-3.09 26.66-4.84 53.44-5.99 80.24l178.87-178.69c6.25-6.25 16.4-6.25 22.65 0s6.25 16.38 0 22.63L7.04 471.03c-9.38 9.37-9.38 24.57 0 33.94 9.38 9.37 24.59 9.37 33.98 0l57.13-57.07c42.09-.14 84.15-2.53 125.96-7.36 53.48-5.44 97.02-26.47 132.58-56.54H255.74l146.79-48.88c11.25-14.89 21.37-30.71 30.45-47.12h-81.14l106.54-53.21C500.29 132.86 510.19 26.26 512 0z"
+                />
+              </svg>
+            </div>
+            <h1 class="app-name">fethr</h1>
+          </div>
+          <p class="tagline">
+            <span>Fine-tune your kit. Unleash your adventure.</span>
+          </p>
+          <a href="#" class="cta-button">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.77 19.49c-.98 1.43-2 2.88-3.57 2.91-1.57.03-2.07-.93-3.86-.93-1.79 0-2.35.9-3.83.95-1.54.06-2.7-1.53-3.7-2.94-2.01-2.91-3.55-8.21-1.48-11.79.96-1.72 2.67-2.81 4.53-2.84 1.61-.03 3.13 1.08 4.11 1.08.98 0 2.82-1.34 4.76-1.14.81.03 3.09.33 4.55 2.47-4.06 2.64-3.39 8.07.49 12.23zM15.98 3.83c.85-1.04 1.45-2.48 1.29-3.83-1.35.09-2.93.91-3.87 2.02-.85.98-1.57 2.42-1.37 3.83 1.48.12 2.99-.82 3.95-2.02z"
+                fill="currentColor"
+              />
+            </svg>
+            <span class="button-text">
+              <small>Download on the</small>
+              App Store
+            </span>
+          </a>
+          <div
+            class="scroll-indicator"
+            onclick="document.querySelector('.features').scrollIntoView({behavior: 'smooth'})"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 20.5c-.2 0-.4-.1-.5-.2l-8-8c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0L12 18.6l7.4-7.4c.3-.3.8-.3 1.1 0 .3.3.3.8 0 1.1l-8 8c-.1.1-.3.2-.5.2zM12 14.5c-.2 0-.4-.1-.5-.2l-8-8c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0L12 12.6l7.4-7.4c.3-.3.8-.3 1.1 0 .3.3.3.8 0 1.1l-8 8c-.1.1-.3.2-.5.2z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="container">
+          <div class="features-header">
+            <h2 class="features-title">Your Adventure Companion</h2>
+            <p class="features-subtitle">
+              Optimize your gear, plan your trips, and explore with confidence.
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">📦</div>
+              <h3 class="feature-title">Pack Management</h3>
+              <p class="feature-description">
+                Create and manage your gear loadouts with ease. Track weights
+                and optimize for different adventures.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🗺️</div>
+              <h3 class="feature-title">Trip Planning</h3>
+              <p class="feature-description">
+                Plan and keep track of your outdoor adventures. From day hikes
+                to thru-hikes, we've got you covered.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">⚖️</div>
+              <h3 class="feature-title">Weight Tracking</h3>
+              <p class="feature-description">
+                Monitor the weight of your gear and packs. Pack light and travel
+                far with confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="download-section">
+        <div class="container">
+          <a href="#" class="cta-button">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.77 19.49c-.98 1.43-2 2.88-3.57 2.91-1.57.03-2.07-.93-3.86-.93-1.79 0-2.35.9-3.83.95-1.54.06-2.7-1.53-3.7-2.94-2.01-2.91-3.55-8.21-1.48-11.79.96-1.72 2.67-2.81 4.53-2.84 1.61-.03 3.13 1.08 4.11 1.08.98 0 2.82-1.34 4.76-1.14.81.03 3.09.33 4.55 2.47-4.06 2.64-3.39 8.07.49 12.23zM15.98 3.83c.85-1.04 1.45-2.48 1.29-3.83-1.35.09-2.93.91-3.87 2.02-.85.98-1.57 2.42-1.37 3.83 1.48.12 2.99-.82 3.95-2.02z"
+                fill="currentColor"
+              />
+            </svg>
+            <span class="button-text">
+              <small>Download on the</small>
+              App Store
+            </span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
