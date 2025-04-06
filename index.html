@@ -327,7 +327,7 @@
       }
 
       .features {
-        padding: 4rem 2rem 2rem;
+        padding: 4rem 2rem 1rem;
         background: #fff;
         position: relative;
         z-index: 2;
@@ -357,7 +357,7 @@
       }
 
       .features-subtitle {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         color: var(--text-secondary);
         max-width: 600px;
         margin: 0 auto;
@@ -430,13 +430,15 @@
       }
 
       .download-section {
-        padding: 2rem 2rem 2rem;
+        padding: 0;
         background: #fff;
         position: relative;
       }
 
       .download-section .container {
         text-align: center;
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
       .download-section .cta-button {
@@ -531,6 +533,51 @@
           font-size: 1rem;
         }
 
+        .faq-section {
+          padding: 1.5rem 1rem 1rem;
+        }
+
+        .faq-title {
+          font-size: 2rem;
+        }
+
+        .faq-subtitle {
+          font-size: 1rem;
+        }
+
+        .faq-question {
+          padding: 1.2rem 1.5rem;
+        }
+
+        .faq-question h3 {
+          font-size: 1.1rem;
+        }
+
+        .faq-answer {
+          padding: 0 1.5rem;
+        }
+
+        .faq-answer p {
+          font-size: 1rem;
+          margin: 1.2rem 0;
+        }
+
+        .faq-item.active .faq-answer {
+          padding: 0 1.5rem;
+        }
+
+        .faq-item.active .faq-icon {
+          transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-question {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-section .container {
+          text-align: center;
+        }
+
         .footer-links {
           display: flex;
           flex-direction: column;
@@ -572,6 +619,19 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
+        }
+
+        .faq-question h3 {
+          font-size: 1.1rem;
+          padding-right: 1rem;
+        }
+
+        .faq-list {
+          margin: 4rem auto 0;
+        }
+
+        .download-section {
+          padding: 0;
         }
       }
 
@@ -631,6 +691,155 @@
         position: relative;
         z-index: 2;
         min-height: 100vh;
+      }
+
+      .download-section .cta-button {
+        margin: 0;
+      }
+
+      /* FAQ Section Styles */
+      .faq-section {
+        padding: 2rem 2rem 1.5rem;
+        background: #fff;
+        position: relative;
+      }
+
+      .faq-header {
+        position: relative;
+        margin-bottom: 2.5rem;
+        text-align: center;
+      }
+
+      .faq-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--text-color) 0%,
+          var(--primary-color) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .faq-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 300;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .faq-header::after {
+        content: "";
+        position: absolute;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary-color),
+          transparent
+        );
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: 4rem auto 0;
+        text-align: left;
+      }
+
+      .faq-item {
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        border-color: rgba(244, 81, 30, 0.2);
+      }
+
+      .faq-question {
+        padding: 1.5rem 2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .faq-question h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+        color: var(--text-color);
+        text-align: left;
+        padding-right: 2rem;
+      }
+
+      .faq-icon {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+          padding 0.3s ease;
+        padding: 0 2rem;
+        opacity: 0;
+      }
+
+      .faq-answer p {
+        margin: 1.5rem 0;
+        padding: 0;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: left;
+        transform: translateY(-8px);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 2rem;
+        opacity: 1;
+      }
+
+      .faq-item.active .faq-answer p {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+      }
+
+      .faq-item.active .faq-question {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .faq-section .container {
+        text-align: center;
       }
     </style>
   </head>
@@ -751,6 +960,105 @@
           </div>
         </section>
 
+        <section class="faq-section">
+          <div class="container">
+            <div class="faq-header">
+              <h2 class="faq-title">Frequently Asked Questions</h2>
+              <p class="faq-subtitle">
+                Get answers to the most common questions about Fethr.
+              </p>
+            </div>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Is the app only for hiking?</h3>
+                  <div class="faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Fethr is built to support any and all kinds of outdoor
+                    trips—camping, climbing, skiing, bikepacking, day hikes, you
+                    name it!
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Can I use the app without internet access?</h3>
+                  <div class="faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Yes! All features of the app work without any internet
+                    access.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Do I need to create an account?</h3>
+                  <div class="faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    No account is required! Everything is stored locally on your
+                    device. We don't collect or store any personal information.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>What do I get with Fethr Pro?</h3>
+                  <div class="faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Fethr Pro removes some restrictions by allowing unlimited
+                    packs and photos per trip, data import/export, and more!
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Can I track the total weight of my gear?</h3>
+                  <div class="faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Yes! Fethr automatically calculates pack weight based on the
+                    items you add.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>How is Fethr different from other gear/pack tools?</h3>
+                  <div class="faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Other commonly used tools are web based and Fethr is a
+                    native app for mobile devices. Fethr also has more than just
+                    gear management such as trip planning and route tracking.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="download-section">
           <div class="container">
             <a
@@ -804,5 +1112,110 @@
         </footer>
       </div>
     </main>
+
+    <script>
+      // Add click event listeners to FAQ questions
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        // Function to update the max-height of any active FAQ answer when browser resizes
+        function updateMaxHeights() {
+          faqItems.forEach((item) => {
+            if (item.classList.contains("active")) {
+              const answer = item.querySelector(".faq-answer");
+
+              // Temporarily remove max-height to measure actual height
+              answer.style.maxHeight = "none";
+
+              // Get the scrollHeight which includes padding
+              const height = answer.scrollHeight;
+
+              // Set the proper height
+              answer.style.maxHeight = height + "px";
+            }
+          });
+        }
+
+        // Listen for window resize events
+        window.addEventListener("resize", updateMaxHeights);
+
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          const answer = item.querySelector(".faq-answer");
+          const answerContent = answer.querySelector("p");
+
+          question.addEventListener("click", () => {
+            // Get the current state
+            const isActive = item.classList.contains("active");
+
+            // If closing this item
+            if (isActive) {
+              // First set content to start moving up with fade out
+              answerContent.style.opacity = "0";
+              answerContent.style.transform = "translateY(-8px)";
+
+              // Give the content animation a small head start
+              setTimeout(() => {
+                // Then start collapsing the container
+                answer.style.maxHeight = "0";
+
+                // Wait for animation to finish before removing active class
+                setTimeout(() => {
+                  item.classList.remove("active");
+                }, 400);
+              }, 50);
+            } else {
+              // Close other items when one is opened
+              faqItems.forEach((otherItem) => {
+                if (
+                  otherItem !== item &&
+                  otherItem.classList.contains("active")
+                ) {
+                  const otherAnswer = otherItem.querySelector(".faq-answer");
+                  const otherContent = otherItem.querySelector(".faq-answer p");
+
+                  if (otherContent) {
+                    otherContent.style.opacity = "0";
+                    otherContent.style.transform = "translateY(-8px)";
+                  }
+
+                  setTimeout(() => {
+                    otherAnswer.style.maxHeight = "0";
+
+                    setTimeout(() => {
+                      otherItem.classList.remove("active");
+                    }, 400);
+                  }, 50);
+                }
+              });
+
+              // First add the active class to apply CSS styles
+              item.classList.add("active");
+
+              // Hide content initially
+              answerContent.style.opacity = "0";
+              answerContent.style.transform = "translateY(-8px)";
+
+              // Calculate the proper height for animation
+              answer.style.maxHeight = "none"; // Remove max-height to calculate actual height
+              const height = answer.scrollHeight; // Get full height including padding
+
+              // Set to 0 and force reflow to start animation from 0
+              answer.style.maxHeight = "0";
+              void answer.offsetHeight;
+
+              // Start the container expanding animation
+              answer.style.maxHeight = height + "px";
+
+              // Animate content with a delay to match closing
+              setTimeout(() => {
+                answerContent.style.opacity = "1";
+                answerContent.style.transform = "translateY(0)";
+              }, 100);
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
